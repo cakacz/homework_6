@@ -7,6 +7,9 @@
 #   filename searched
 
 echo "filename: $1"
-lines=cat $1 | grep -ne $2 | cut -c 1
+lines=`grep -ne $2 $1 | cut -c 1 | awk '{print ($1)}'`
+count = `$lines | wc -l`
 
-echo "$2 was found
+echo "There are {$count} lines with $2 in it"
+echo "These lines are :"
+echo "$lines"
