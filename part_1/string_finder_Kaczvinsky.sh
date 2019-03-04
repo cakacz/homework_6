@@ -8,8 +8,8 @@
 
 echo "filename: $1"
 lines=`grep -ne $2 $1 | cut -c 1 | awk '{print ($1)}'`
-count = `$lines | wc -l`
+count=`grep -ce $2 $1 | awk '{print ($1)}'`
 
-echo "There are {$count} lines with $2 in it"
+echo "There are $count lines with $2"
 echo "These lines are :"
 echo "$lines"
